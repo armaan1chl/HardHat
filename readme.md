@@ -33,6 +33,6 @@ This code is provided under an UNLICENSED SPDX license. Feel free to modify and 
 
 ## Author
 
-Chirag Arora
+Armaan Chahal
 
 
