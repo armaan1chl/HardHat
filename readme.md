@@ -1,4 +1,4 @@
-# MyToken Smart Contract
+# MyToken(MT) Smart Contract
 
 ## Overview
 This Solidity smart contract implements a basic token called "MyToken" with the symbol "MT." It allows token minting, balance checking, token transfers, and token burning functionalities.
