@@ -1,7 +1,7 @@
 # MyToken (MT) Smart Contract
 
 ## Overview
-This Solidity smart contract implements a basic token called "MyToken" with the symbol "MT." It allows token minting, balance checking, token transfers, and token burning functionalities.
+This repository contains a simple ERC-20-like token smart contract written in Solidity. The token is named "MyToken" and has the symbol "MT".
 
 ## Getting Started
 To use this contract, you will need a development environment with Solidity compiler support, such as [Hardhat](https://hardhat.org/). Follow these steps to get started:
@@ -22,11 +22,11 @@ The smart contract consists of the following functions and variables:
 - `burn(address _a, uint256 _x)`: Allows token holders to burn a specified amount of their own tokens.
 
 ### Variables
-- `name`: A string representing the name of the token.
-- `symbol`: A string representing the symbol of the token.
-- `totalSupply`: An unsigned integer representing the total supply of tokens.
-- `owner`: The address of the contract owner.
-- `balances`: A mapping that associates addresses with their respective token balances.
+- `name`:The name of the token ("MyToken").
+- `symbol`:  The symbol of the token ("MT").
+- `totalSupply`:The total supply of tokens initialized to 1,000,000.
+- `owner`:The address of the contract owner.
+- `balances`:A mapping to keep track of each address's token balance.
 
 ## License
 This code is provided under an UNLICENSED SPDX license. Feel free to modify and use it as per your requirements.
