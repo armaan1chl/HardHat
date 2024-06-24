@@ -1,7 +1,7 @@
 # MyToken Smart Contract
 
 ## Overview
-This repository contains a simple ERC-20-like token smart contract written in Solidity. The token is named "MyToken" and has the symbol "MT".
+This Solidity smart contract implements a basic token called "MyToken" with the symbol "MT." It allows token minting, balance checking, token transfers, and token burning functionalities.
 
 ## Getting Started
 To use this contract, you will need a development environment with Solidity compiler support, such as [Hardhat](https://hardhat.org/). Follow these steps to get started:
