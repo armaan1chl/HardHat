@@ -1,4 +1,4 @@
-# MyToken (MT) Smart Contract
+# MyToken Smart Contract
 
 ## Overview
 This repository contains a simple ERC-20-like token smart contract written in Solidity. The token is named "MyToken" and has the symbol "MT".
