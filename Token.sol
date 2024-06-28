@@ -1,44 +1,27 @@
-//SPDX-License-Identifier: UNLICENSED
-
-
-pragma solidity ^0.8.9;
-
+// SPDX-License-Identifier: MIT
+// Compatible with OpenZeppelin Contracts ^5.0.0
+pragma solidity ^0.8.20;
 
 import "hardhat/console.sol";
 
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 
-contract Token {
-
-    string public name = "MyToken";
-    string public symbol = "MT";
-
-
-    uint256 public totalSupply = 1000000;
-
-
-    address public owner;
-
+contract MyToken is ERC20, ERC20Burnable, Ownable, ERC20Permit {
 
     mapping(address => uint256) balances;
 
 
+    constructor(address initialOwner)
+        ERC20("MyToken", "MTK")
+        Ownable(initialOwner)
+        ERC20Permit("MyToken")
+    {}
 
-
-    constructor() {
-
-        balances[msg.sender] = totalSupply;
-        owner = msg.sender;
-    }
-
-
-    function mint( uint256 amount , address to) external {
-
-        balances[to] += amount;        
-    }
-
-    function balanceOf(address account) external view returns (uint256) {
-        return balances[account];
-    }
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);}
 
     function transfer(address from, address to, uint256 amount) external {
 
@@ -47,15 +30,5 @@ contract Token {
         balances[to] += amount;
 
     }
-    
-    function burn (address _a,uint _x) public
-    {
-        if(balances[_a]>=_x)
-        {
-            totalSupply -= _x;
-            balances[_a]-=_x;
-
-        }
-    }
-
 }
+  
