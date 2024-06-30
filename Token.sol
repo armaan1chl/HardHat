@@ -15,7 +15,7 @@ contract MyToken is ERC20, ERC20Burnable, Ownable, ERC20Permit {
 
 
     constructor(address initialOwner)
-        ERC20("MyToken", "MTK")
+        ERC20("MyToken", "TK")
         Ownable(initialOwner)
         ERC20Permit("MyToken")
     {}
