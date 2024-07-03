@@ -10,10 +10,6 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 
 contract MyToken is ERC20, ERC20Burnable, Ownable, ERC20Permit {
-
-    mapping(address => uint256) balances;
-
-
     constructor(address initialOwner)
         ERC20("MyToken", "TK")
         Ownable(initialOwner)
@@ -21,22 +17,12 @@ contract MyToken is ERC20, ERC20Burnable, Ownable, ERC20Permit {
     {}
 
     function mint(address to, uint256 amount) public onlyOwner {
-        _mint(to, amount);}
-
-    function burn (address _a,uint _x) public
-    {
-        if(balances[_a]>=_x)
-        {
-            balances[_a]-=_x;
-        }
+        _mint(to, amount);
     }
+
+    // burn function is already implemented by ERC20Burnable, so no need to override it
 
     function transfer(address from, address to, uint256 amount) external {
-
-        require(balances[from] >= amount, "Not enough tokens");
-        balances[from] -= amount;
-        balances[to] += amount;
-
+        _transfer(from, to, amount);
     }
 }
-  
