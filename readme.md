@@ -15,7 +15,7 @@ To use this contract, you will need a development environment with Solidity comp
 ## Features
 1.ERC20 Standard: Implements the standard ERC20 token functions including transfer, approve, and balance management.
 
-2.Burnable: Users can burn their own tokens using the built-in burn function.
+2.Burnable: Users can burn their own tokens.
 
 3.Mintable: The contract owner can mint new tokens to any address.
 
@@ -27,7 +27,8 @@ To use this contract, you will need a development environment with Solidity comp
 The smart contract consists of the following functions. 
 
 ### Functions
--  mint(address to, uint256 amount): Allows the owner to mint new tokens. 
+-  mint(address to, uint256 amount): Allows the owner to mint new tokens.
+-  burn(uint256 amount): Allows the owner to burn tokens.
 -  transfer(address from, address to, uint256 amount): Allows any address to transfer tokens from one address to another. Note that this function is overridden for 
   this contract, but it is not necessary and might be removed.
 
