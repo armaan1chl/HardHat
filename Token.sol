@@ -3,7 +3,6 @@
 pragma solidity ^0.8.20;
 
 import "hardhat/console.sol";
-
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol"; // for Burn
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -20,7 +19,14 @@ contract MyToken is ERC20, ERC20Burnable, Ownable, ERC20Permit {
         _mint(to, amount);
     }
 
-    // burn function is already implemented by ERC20Burnable, so no need to override it
+    function burn(uint256 amount) public override {
+        _burn(_msgSender(), amount);
+    }
+
+    function burnFrom(address account, uint256 amount) public override {
+        _spendAllowance(account, _msgSender(), amount);
+        _burn(account, amount);
+    }
 
     function transfer(address from, address to, uint256 amount) external {
         _transfer(from, to, amount);
