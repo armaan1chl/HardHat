@@ -23,11 +23,6 @@ contract MyToken is ERC20, ERC20Burnable, Ownable, ERC20Permit {
         _burn(_msgSender(), amount);
     }
 
-    function burnFrom(address account, uint256 amount) public override {
-        _spendAllowance(account, _msgSender(), amount);
-        _burn(account, amount);
-    }
-
     function transfer(address from, address to, uint256 amount) external {
         _transfer(from, to, amount);
     }
